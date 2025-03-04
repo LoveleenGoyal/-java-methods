@@ -18,14 +18,10 @@ public class SumOfNumbers {
         System.out.print("Enter a positive integer: ");
         int n = sc.nextInt();
 		
-		// Check number is valid or not
-        if (n < 1) {
-            System.out.println("Please enter a positive integer");
-        } else {
-            // Calculate sum and display result
-            int result = sumOfNaturalNumbers(n);
-            System.out.println("The sum of first " + n + " natural numbers is: " + result);
-        }
+        // Calculate sum and display result
+        int result = sumOfNaturalNumbers(n);
+        System.out.println("The sum of first " + n + " natural numbers is: " + result);
+        
         sc.close();
     }
 }
