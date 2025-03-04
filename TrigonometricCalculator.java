@@ -10,18 +10,7 @@ public class TrigonometricCalculator {
         // Calculate sine, cosine, and tangent
         double sinValue = Math.sin(radians);
         double cosValue = Math.cos(radians);
-
-        // If cos is nearly zero, make it exactly zero
-        if (Math.abs(cosValue) < 1e-10) { 
-            cosValue = 0.0;
-        }
-
-        double tanValue;
-        if (cosValue == 0) { // If cos is zero, tan is undefined (Infinity)
-            tanValue = Double.POSITIVE_INFINITY;
-        } else {
-            tanValue = Math.tan(radians);
-        }
+		double tanValue = Math.tan(radians);
 
         return new double[]{sinValue, cosValue, tanValue};
     }
@@ -34,17 +23,14 @@ public class TrigonometricCalculator {
         double angle = sc.nextDouble();
 
         // Calculate trigonometric values
-        double[] trigValues = calculateTrigonometricFunctions(angle);
+        double[] results = calculateTrigonometricFunctions(angle);
 
         // Display results
-        System.out.println("Sine of " + angle + ": " + trigValues[0]);
-        System.out.println("Cosine of " + angle + ": " + trigValues[1]);
+        System.out.println("Sin(" + angle + ") = " + String.format("%.2f", results[0]));
+		System.out.println("Cos(" + angle + ") = " + String.format("%.2f", results[1]));
+		System.out.println("Tan(" + angle + ") = " + String.format("%.2f", results[2]));
+
         
-        if (trigValues[2] == Double.POSITIVE_INFINITY) {
-            System.out.println("Tangent of " + angle + ": Undefined");
-        } else {
-            System.out.println("Tangent of " + angle + ": " + trigValues[2]);
-        }
         sc.close();
     }
 }
